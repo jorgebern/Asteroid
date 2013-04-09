@@ -209,17 +209,12 @@ public class PantallaJuego extends Pantalla  implements SensorEventListener{
         Graficos g = juego.getGraphics();
         Nave jollyroger = mundo.jollyroger;
         
-        Botin botin = mundo.botin;
+        obstaculo botin = mundo.obstaculo;
         
         
         
         Pixmap stainPixmap = null;
-        if(botin.tipo== Botin.TIPO_1)
-            stainPixmap = Assets.botin1;
-        if(botin.tipo == Botin.TIPO_2)
-            stainPixmap = Assets.botin2;
-        if(botin.tipo == Botin.TIPO_3)
-            stainPixmap = Assets.botin3;
+          stainPixmap = Assets.alien;
         int x = botin.x * 32;
         int y = botin.y * 32;      
         g.drawPixmap(stainPixmap, x, y); 
@@ -255,6 +250,7 @@ public class PantallaJuego extends Pantalla  implements SensorEventListener{
 	        x = jollyroger.x*32 + 16;
 	        y = jollyroger.y * 32 + 16;
 	        g.drawPixmap(headPixmap, x - headPixmap.getWidth() / 2, y - headPixmap.getHeight() / 2);
+	        
         }else if(jollyroger.imagen.equals("nave1"))  {
         	headPixmap = Assets.nave1arriba;
         	if(jollyroger.direccion == Nave.ARRIBA) 

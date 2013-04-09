@@ -38,6 +38,7 @@ public class LoadingScreen extends Pantalla{
         Assets.meteorito = g.newPixmap("Meteorito.png", PixmapFormat.ARGB4444);
         Assets.objetos = g.newPixmap("objetos.png", PixmapFormat.ARGB4444);
         Assets.muerte = g.newPixmap("muerte.png", PixmapFormat.ARGB4444);
+        Assets.alien = g.newPixmap("alien.png", PixmapFormat.ARGB4444);
         
         Assets.botin1 = g.newPixmap("botin1.png", PixmapFormat.ARGB4444);
         Assets.botin2 = g.newPixmap("botin2.png", PixmapFormat.ARGB4444);

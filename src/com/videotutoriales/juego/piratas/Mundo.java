@@ -16,7 +16,7 @@ public class Mundo  {
     static final float TICK_DECREMENTO = 0.05f;
 
     public Nave jollyroger;
-    public Botin botin;
+    public obstaculo obstaculo;
     public boolean finalJuego = false;
     public int puntuacion = 0;
 
@@ -28,14 +28,14 @@ public class Mundo  {
     ArrayList<meteorito> meteorito;
     ArrayList<disparo> disparos;
 
-    public Mundo(Nave nave, ArrayList meteorito, ArrayList disparos) {
+    public Mundo(Nave nave, ArrayList<meteorito> meteorito, ArrayList<disparo> disparos) {
         jollyroger = nave;
-        colocarBotin();
+        colocarObtaculo();
         this.meteorito = meteorito;
         this.disparos = disparos;
     }
 
-    private void colocarBotin() {
+    private void colocarObtaculo() {
         for (int x = 0; x < MUNDO_ANCHO; x++) {
             for (int y = 0; y < MUNDO_ALTO; y++) {
                 campos[x][y] = false;
@@ -57,7 +57,7 @@ public class Mundo  {
                 }
             }
         }
-        botin = new Botin(botinX, botinY, random.nextInt(3));
+        obstaculo = new obstaculo(botinX, botinY);
     }
     
     public void disparar() {
