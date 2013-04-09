@@ -17,7 +17,6 @@ import com.videotutoriales.juego.marco.Pantalla;
 
 public class PantallaJuego extends Pantalla  implements SensorEventListener{
     
-	//TODO
     public final float Y = juego.getInput().getAccelY();
     public final float X = juego.getInput().getAccelX();
     

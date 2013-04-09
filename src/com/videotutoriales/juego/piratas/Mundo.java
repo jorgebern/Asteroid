@@ -75,6 +75,8 @@ public class Mundo  {
         	tiempoTick -= tick;
             jollyroger.Avanzar();
             comprobarEnemigo();
+            //comprobarColision();
+            MatarEnemigo();
             
             for(int i =0;i<disparos.size();i++) {
             	disparos.get(i).Avanzar();
@@ -83,12 +85,6 @@ public class Mundo  {
             for(int i =0;i<meteorito.size();i++) {
             	 meteorito.get(i).Avanzar();
             }
-            
-            for(int i =0;i<disparos.size();i++) {
-            	meteorito = disparos.get(i).comprobarColision(meteorito);
-            }
-            
-            
            
             if (jollyroger.comprobarColision(meteorito)) { 
             	jollyroger.vidas--;               
@@ -100,5 +96,27 @@ public class Mundo  {
             }
             }
         }
+    
+    //TODO
+    public void comprobarColision() {
+		
+    	for(int i =0;i<meteorito.size();i++) {
+    		for(int j =0;i<disparos.size();i++) {
+    			if(meteorito.get(i).x >= disparos.get(j).x && meteorito.get(i).y >= disparos.get(j).y &&
+    					meteorito.get(i).x+32 <= disparos.get(j).x + 32 && meteorito.get(i).y + 32 <= disparos.get(j).y + 32) {
+    			}
+    		}
+    	}
+		
+	}
+    
+    public void MatarEnemigo() {
+    	for(int i =0;i<disparos.size();i++) {
+    		if(disparos.get(i).x == obstaculo.x && disparos.get(i).y == obstaculo.y) {
+    			obstaculo.x = random.nextInt(MUNDO_ANCHO);
+    			obstaculo.y = random.nextInt(MUNDO_ALTO);
+    		}
+    	}
+    }
     
 }

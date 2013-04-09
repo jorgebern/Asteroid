@@ -76,16 +76,6 @@ public class disparo{
         }
 	}
 	
-	public ArrayList comprobarColision(ArrayList<meteorito> meteoritos) {
-		
-		for(int i =0;i<meteoritos.size();i++) {
-			if(this.x/63 == meteoritos.get(i).x && this.y/63 == meteoritos.get(i).y && this.visible) {
-				meteoritos.get(i).visible = false;
-				this.visible = false;
-			}
-		}
-		
-		return meteoritos;
-	}
+	
 	
 }
