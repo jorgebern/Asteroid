@@ -1,8 +1,7 @@
 package com.videotutoriales.juego.piratas;
 
-import java.util.ArrayList;
 
-public class disparo{
+public class disparo {
 
 	public static final int ARRIBA = 0;
     public static final int IZQUIERDA= 1;
@@ -16,6 +15,9 @@ public class disparo{
 	
     int x;
 	int y;
+	int xAnterior;
+	int yAnterior;
+	
 	int direccion;
 	boolean visible = true;
 	int duracion;
@@ -44,15 +46,21 @@ public class disparo{
 	
 	//------------------------MOVIMIENTOS-----------------------------
 	public void Avanzar() {
-		if(direccion == ARRIBA)
+		if(direccion == ARRIBA){
+			this.yAnterior = y;
             this.y -= 2;
-        if(direccion == IZQUIERDA)
-        	this.x -= 2;
-        if(direccion == ABAJO)
-        	this.y += 2;
-        if(direccion == DERECHA)
-        	this.x += 2;
-        if(direccion == ARRIBADERECHA) {
+		} else if(direccion == IZQUIERDA) {
+			this.xAnterior = x;
+			this.x -= 2;
+		}else if(direccion == ABAJO)  {
+			this.yAnterior = y;
+			this.y += 2;
+		} else if(direccion == DERECHA) {
+			this.xAnterior = x;
+			this.x += 2;
+		}
+        	
+        /*if(direccion == ARRIBADERECHA) {
         	this.y -= 2;
         	this.x += 2;
         } 
@@ -67,7 +75,7 @@ public class disparo{
         if(direccion == ABAJOIZQUIERDA) {
         	this.y += 2;
         	this.x -= 2;
-        }
+        }*/
         
         duracion++;
         

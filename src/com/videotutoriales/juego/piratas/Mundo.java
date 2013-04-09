@@ -7,7 +7,7 @@ public class Mundo  {
     static final int MUNDO_ANCHO = 20;
     static final int MUNDO_ALTO = 9;
     static final int INCREMENTO_PUNTUACION = 10;
-    static final float TICK_INICIAL = 0.2f;
+    static final float TICK_INICIAL = 0.3f;
     static final float TICK_DECREMENTO = 0.05f;
 
     public Nave jollyroger;
@@ -34,10 +34,12 @@ public class Mundo  {
 
     public void comprobarEnemigo() {
     
-		if(jollyroger.x  >= obstaculo.x && jollyroger.y  >= obstaculo.y &&
-				jollyroger.x  <= obstaculo.x && jollyroger.y  <= obstaculo.y) {
-			jollyroger.vidas--;
-		}
+    	if(obstaculo.visible) {
+			if(jollyroger.x  >= obstaculo.x && jollyroger.y  >= obstaculo.y &&
+					jollyroger.x  <= obstaculo.x && jollyroger.y  <= obstaculo.y) {
+				jollyroger.vidas--;
+			}
+    	}
 		
     }
     
@@ -83,6 +85,7 @@ public class Mundo  {
         	
             DestruirMeteorito();
             MatarEnemigo();
+            
             jollyroger.Avanzar();
             Disparo.Avanzar();
             comprobarEnemigo();
@@ -103,11 +106,16 @@ public class Mundo  {
             }
         }
     
-    //TODO
+
     public void DestruirMeteorito() {
 		
     	for(int i =0;i<meteorito.size();i++) {
     		if(meteorito.get(i).x == Disparo.x && meteorito.get(i).y == Disparo.y) {
+    			meteorito.get(i).visible = false;
+    			puntuacion += 50;
+    		}
+    		
+    		if(meteorito.get(i).xAnterior == Disparo.x && meteorito.get(i).yAnterior == Disparo.y) {
     			meteorito.get(i).visible = false;
     			puntuacion += 50;
     		}
@@ -117,11 +125,19 @@ public class Mundo  {
 	}
     
     public void MatarEnemigo() {
-    		if(Disparo.x == obstaculo.x && Disparo.y == obstaculo.y) {
+    	
+    		if(Disparo.x == obstaculo.x && Disparo.y == obstaculo.y || Disparo.xAnterior == obstaculo.x && Disparo.yAnterior == obstaculo.y) {
     			obstaculo.x = random.nextInt(MUNDO_ANCHO);
     			obstaculo.y = random.nextInt(MUNDO_ALTO);
+    			puntuacion +=20;
+    			obstaculo.visible = false;
     		
-    	}
+    		}
+    		
+    		if(obstaculo.x == Disparo.xAnterior+1 &&obstaculo.x == Disparo.x - 1 && obstaculo.y == Disparo.yAnterior + 1 && 
+    				obstaculo.y == Disparo.y - 1) {
+    			
+    		}
     }
     
 }

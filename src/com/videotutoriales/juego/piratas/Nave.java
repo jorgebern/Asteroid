@@ -2,11 +2,6 @@ package com.videotutoriales.juego.piratas;
 
 import java.util.ArrayList;
 
-import android.graphics.Color;
-
-import com.videotutoriales.juego.marco.Graficos;
-import com.videotutoriales.juego.marco.Juego;
-
 public class Nave {
 
 	public static final int ARRIBA = 0;
@@ -73,8 +68,8 @@ public class Nave {
         }
         
         if(this.x < 0)
-        	this.x = 15;
-        if(this.x > 15)
+        	this.x = 14;
+        if(this.x > 14)
         	this.x = 0;
         if(this.y < 0)
         	this.y = 8;
@@ -108,11 +103,7 @@ public class Nave {
 	
     //---------------------------------------------------------------------------
 	
-	/*public ArrayList disparar(ArrayList<disparo> disparos) {
-		
-		
-	}*/
-	
+    
 	public boolean comprobarColision(ArrayList<meteorito> meteoritos) {
 		
 		boolean tocado = false;

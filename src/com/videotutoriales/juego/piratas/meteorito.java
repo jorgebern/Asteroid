@@ -18,6 +18,9 @@ public class meteorito {
     
 	int x;
 	int y;
+	int xAnterior;
+	int yAnterior;
+	
 	int direccion;
 	int tipo;
 	boolean visible = true;
@@ -46,14 +49,20 @@ public class meteorito {
 	
 	//------------------------MOVIMIENTOS-----------------------------
 	public void Avanzar() {
-		if(direccion == ARRIBA)
+		if(direccion == ARRIBA){
+			this.yAnterior = y;
             this.y -= 1;
-        if(direccion == IZQUIERDA)
-        	this.x -= 1;
-        if(direccion == ABAJO)
-        	this.y += 1;
-        if(direccion == DERECHA)
-        	this.x += 1;
+		} else if(direccion == IZQUIERDA) {
+			this.xAnterior = x;
+			this.x -= 1;
+		}else if(direccion == ABAJO)  {
+			this.yAnterior = y;
+			this.y += 1;
+		} else if(direccion == DERECHA) {
+			this.xAnterior = x;
+			this.x += 1;
+		}
+		
         if(direccion == ARRIBADERECHA) {
         	this.y -= 1;
         	this.x += 1;
