@@ -12,6 +12,7 @@ public class Mundo  {
 
     public Nave jollyroger;
     public obstaculo obstaculo;
+    public disparo Disparo;
     public boolean finalJuego = false;
     public int puntuacion = 0;
 
@@ -26,6 +27,7 @@ public class Mundo  {
     public Mundo(Nave nave, ArrayList<meteorito> meteorito, ArrayList<disparo> disparos) {
         jollyroger = nave;
         colocarObtaculo();
+        colocarDisparo();
         this.meteorito = meteorito;
         this.disparos = disparos;
     }
@@ -37,6 +39,11 @@ public class Mundo  {
 			jollyroger.vidas--;
 		}
 		
+    }
+    
+    public void colocarDisparo() {
+    	
+    	 Disparo = new disparo(jollyroger.x, jollyroger.y, jollyroger.direccion);
     }
 
     private void colocarObtaculo() {
@@ -74,13 +81,10 @@ public class Mundo  {
         while (tiempoTick > tick) {
         	tiempoTick -= tick;
             jollyroger.Avanzar();
+            Disparo.Avanzar();
             comprobarEnemigo();
             //comprobarColision();
             MatarEnemigo();
-            
-            for(int i =0;i<disparos.size();i++) {
-            	disparos.get(i).Avanzar();
-            }
             
             for(int i =0;i<meteorito.size();i++) {
             	 meteorito.get(i).Avanzar();
@@ -112,7 +116,7 @@ public class Mundo  {
     
     public void MatarEnemigo() {
     	for(int i =0;i<disparos.size();i++) {
-    		if(disparos.get(i).x == obstaculo.x * 32 && disparos.get(i).y == obstaculo.y * 32) {
+    		if(disparos.get(i).x == obstaculo.x && disparos.get(i).y == obstaculo.y) {
     			obstaculo.x = random.nextInt(MUNDO_ANCHO);
     			obstaculo.y = random.nextInt(MUNDO_ALTO);
     		}

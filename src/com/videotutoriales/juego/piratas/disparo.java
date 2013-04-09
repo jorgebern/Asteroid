@@ -45,28 +45,28 @@ public class disparo{
 	//------------------------MOVIMIENTOS-----------------------------
 	public void Avanzar() {
 		if(direccion == ARRIBA)
-            this.y -= 100;
+            this.y -= 2;
         if(direccion == IZQUIERDA)
-        	this.x -= 100;
+        	this.x -= 2;
         if(direccion == ABAJO)
-        	this.y += 100;
+        	this.y += 2;
         if(direccion == DERECHA)
-        	this.x += 100;
+        	this.x += 2;
         if(direccion == ARRIBADERECHA) {
-        	this.y -= 100;
-        	this.x += 100;
+        	this.y -= 2;
+        	this.x += 2;
         } 
         if(direccion == ARRIBAIZQUIERDA) {
-        	this.y -= 100;
-        	this.x -= 100;
+        	this.y -= 2;
+        	this.x -= 2;
         }
         if(direccion == ABAJODERECHA) {
-        	this.y += 100;
-        	this.x += 100;
+        	this.y += 2;
+        	this.x += 2;
         }
         if(direccion == ABAJOIZQUIERDA) {
-        	this.y += 100;
-        	this.x -= 100;
+        	this.y += 2;
+        	this.x -= 2;
         }
         
         duracion++;

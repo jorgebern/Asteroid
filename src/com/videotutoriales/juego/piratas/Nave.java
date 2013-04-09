@@ -108,19 +108,10 @@ public class Nave {
 	
     //---------------------------------------------------------------------------
 	
-	public ArrayList disparar(ArrayList<disparo> disparos) {
+	/*public ArrayList disparar(ArrayList<disparo> disparos) {
 		
-		//TODO
-		if(disparos.size() >= 10) {
-			for(int i =0;i<8;i++)
-				disparos.remove(1);
-		} else  {
-			disparos.add(new disparo(this.x*32, this.y * 31, this.direccion));
-		}
-
-		return disparos;
 		
-	}
+	}*/
 	
 	public boolean comprobarColision(ArrayList<meteorito> meteoritos) {
 		

@@ -89,9 +89,10 @@ public class PantallaJuego extends Pantalla  implements SensorEventListener{
 
                 if(event.x > 420 && event.y > 230
                 		&& event.x < 460 && event.y < 270 ) {
-                	if(Configuraciones.sonidoHabilitado)
-                       
-                	disparos = mundo.jollyroger.disparar(disparos);
+                	if(Configuraciones.sonidoHabilitado){
+                		mundo.colocarDisparo();
+                	}
+                      
                 }
                 
                 if(event.x > 380 && event.y > 270
@@ -209,6 +210,7 @@ public class PantallaJuego extends Pantalla  implements SensorEventListener{
         Nave jollyroger = mundo.jollyroger;
         
         obstaculo botin = mundo.obstaculo;
+        disparo disparo = mundo.Disparo;
         
         
         
@@ -217,6 +219,21 @@ public class PantallaJuego extends Pantalla  implements SensorEventListener{
         int x = botin.x * 32;
         int y = botin.y * 32;      
         g.drawPixmap(stainPixmap, x, y); 
+        
+        if(disparo.direccion == 0) {
+        	stainPixmap = Assets.disparoArriba;
+        } else if(disparo.direccion == 1) {
+        	stainPixmap = Assets.disparoIzquierda;
+        } else if(disparo.direccion == 2) {
+        	stainPixmap = Assets.disparoAbajo;
+        } else if(disparo.direccion == 3) {
+        	stainPixmap = Assets.disparoDerecha;
+        }
+      	x = disparo.x * 32;
+      	y = disparo.y * 32;      
+      	g.drawPixmap(stainPixmap, x, y); 
+        
+        
         
         for(int i =0;i<meteoros.size();i++) {
         	if(meteoros.get(i).visible) {
@@ -265,7 +282,7 @@ public class PantallaJuego extends Pantalla  implements SensorEventListener{
 	        y = jollyroger.y * 32 + 16;
 	        g.drawPixmap(headPixmap, x - headPixmap.getWidth() / 2, y - headPixmap.getHeight() / 2);
         }
-        for(int i =0;i<disparos.size();i++) {
+        /*for(int i =0;i<disparos.size();i++) {
         	if(disparos.get(i).visible) {
         		if(disparos.get(i).direccion == disparo.ABAJO)
         			headPixmap = Assets.disparoAbajo;
@@ -280,7 +297,7 @@ public class PantallaJuego extends Pantalla  implements SensorEventListener{
 	            y = jollyroger.y * 32 + 16;
 	            g.drawPixmap(headPixmap, disparos.get(i).x, disparos.get(i).y);
         	}
-        }
+        }*/
         
 
     }
