@@ -112,7 +112,7 @@ public class Mundo  {
     
     public void MatarEnemigo() {
     	for(int i =0;i<disparos.size();i++) {
-    		if(disparos.get(i).x == obstaculo.x && disparos.get(i).y == obstaculo.y) {
+    		if(disparos.get(i).x == obstaculo.x * 32 && disparos.get(i).y == obstaculo.y * 32) {
     			obstaculo.x = random.nextInt(MUNDO_ANCHO);
     			obstaculo.y = random.nextInt(MUNDO_ALTO);
     		}

@@ -1,7 +1,4 @@
 becomes
-
 hello
-
 hello
-
 hello
