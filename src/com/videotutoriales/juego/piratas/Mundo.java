@@ -1,12 +1,7 @@
 package com.videotutoriales.juego.piratas;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Random;
-
-import android.graphics.Color;
-
-import com.videotutoriales.juego.marco.Graficos;
 
 public class Mundo  {
     static final int MUNDO_ANCHO = 20;
@@ -35,16 +30,25 @@ public class Mundo  {
         this.disparos = disparos;
     }
 
+    public void comprobarEnemigo() {
+    
+		if(jollyroger.x  >= obstaculo.x && jollyroger.y  >= obstaculo.y &&
+				jollyroger.x  <= obstaculo.x && jollyroger.y  <= obstaculo.y) {
+			jollyroger.vidas--;
+		}
+		
+    }
+
     private void colocarObtaculo() {
         for (int x = 0; x < MUNDO_ANCHO; x++) {
             for (int y = 0; y < MUNDO_ALTO; y++) {
                 campos[x][y] = false;
             }
         }
-        
 
         int botinX = random.nextInt(MUNDO_ANCHO);
         int botinY = random.nextInt(MUNDO_ALTO);
+        
         while (true) {
             if (campos[botinX][botinY] == false)
                 break;
@@ -59,11 +63,6 @@ public class Mundo  {
         }
         obstaculo = new obstaculo(botinX, botinY);
     }
-    
-    public void disparar() {
-   	 
-
-    }
 
     public void update(float deltaTime) {
         if (finalJuego)
@@ -75,6 +74,7 @@ public class Mundo  {
         while (tiempoTick > tick) {
         	tiempoTick -= tick;
             jollyroger.Avanzar();
+            comprobarEnemigo();
             
             for(int i =0;i<disparos.size();i++) {
             	disparos.get(i).Avanzar();

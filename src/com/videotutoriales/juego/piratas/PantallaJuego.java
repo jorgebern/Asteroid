@@ -261,6 +261,7 @@ public class PantallaJuego extends Pantalla  implements SensorEventListener{
 	            headPixmap = Assets.nave1abajo;
 	        if(jollyroger.direccion == Nave.DERECHA) 
 	            headPixmap = Assets.nave1derecha;
+	        
 	        x = jollyroger.x*32 + 16;
 	        y = jollyroger.y * 32 + 16;
 	        g.drawPixmap(headPixmap, x - headPixmap.getWidth() / 2, y - headPixmap.getHeight() / 2);
