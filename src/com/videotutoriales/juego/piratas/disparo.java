@@ -47,16 +47,16 @@ public class disparo {
 	//------------------------MOVIMIENTOS-----------------------------
 	public void Avanzar() {
 		if(direccion == ARRIBA){
-			this.yAnterior = y;
+			this.yAnterior = y-1;
             this.y -= 2;
 		} else if(direccion == IZQUIERDA) {
-			this.xAnterior = x;
+			this.xAnterior = x-1;
 			this.x -= 2;
 		}else if(direccion == ABAJO)  {
-			this.yAnterior = y;
+			this.yAnterior = y+1;
 			this.y += 2;
 		} else if(direccion == DERECHA) {
-			this.xAnterior = x;
+			this.xAnterior = x+1;
 			this.x += 2;
 		}
         	

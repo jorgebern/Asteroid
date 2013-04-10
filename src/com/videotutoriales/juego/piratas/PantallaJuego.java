@@ -203,7 +203,7 @@ public class PantallaJuego extends Pantalla  implements SensorEventListener{
                    event.y >= 200 && event.y <= 264) {
                     if(Configuraciones.sonidoHabilitado)
                         Assets.pulsar.play(1);                        
-                    juego.setScreen(new MainMenuScreen(juego));
+                    juego.setScreen(new NombreJug(juego));
                     return;
                 }
             }
@@ -247,19 +247,22 @@ public class PantallaJuego extends Pantalla  implements SensorEventListener{
         int y = botin.y * 32;      
         g.drawPixmap(stainPixmap, x, y); 
         
-        if(disparo.direccion == 0) {
-        	stainPixmap = Assets.disparoArriba;
-        } else if(disparo.direccion == 1) {
-        	stainPixmap = Assets.disparoIzquierda;
-        } else if(disparo.direccion == 2) {
-        	stainPixmap = Assets.disparoAbajo;
-        } else if(disparo.direccion == 3) {
-        	stainPixmap = Assets.disparoDerecha;
-        }
-      	x = disparo.x * 32;
-      	y = disparo.y * 32;      
-      	g.drawPixmap(stainPixmap, x, y); 
         
+        if(disparo.visible) {
+	        if(disparo.direccion == 0) {
+	        	stainPixmap = Assets.disparoArriba;
+	        } else if(disparo.direccion == 1) {
+	        	stainPixmap = Assets.disparoIzquierda;
+	        } else if(disparo.direccion == 2) {
+	        	stainPixmap = Assets.disparoAbajo;
+	        } else if(disparo.direccion == 3) {
+	        	stainPixmap = Assets.disparoDerecha;
+	        }
+	        
+	      	x = disparo.x * 32;
+	      	y = disparo.y * 32;      
+	      	g.drawPixmap(stainPixmap, x, y); 
+        }
         
         
         for(int i =0;i<meteoros.size();i++) {

@@ -10,7 +10,7 @@ import com.videotutoriales.juego.marco.FileIO;
 
 public class Configuraciones {
     public static boolean sonidoHabilitado = true;
-    public static int[] maxPuntuaciones = new int[] { 100, 80, 50, 30, 10 };
+    public static int[] maxPuntuaciones = new int[] { 0, 0, 0, 0, 0 };
 
     public static void cargar(FileIO files) {
         BufferedReader in = null;

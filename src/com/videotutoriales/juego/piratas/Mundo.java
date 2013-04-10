@@ -109,15 +109,16 @@ public class Mundo  {
     public void DestruirMeteorito() {
 		
     	for(int i =0;i<meteorito.size();i++) {
-    		if(meteorito.get(i).x == Disparo.x && meteorito.get(i).y == Disparo.y && meteorito.get(i).visible) {
+    		if(meteorito.get(i).x == Disparo.x && meteorito.get(i).y == Disparo.y && meteorito.get(i).visible && Disparo.visible) {
     			meteorito.get(i).visible = false;
     			puntuacion += 50;
-    			
+    			Disparo.visible = false;
     		}
     		
-    		if(meteorito.get(i).xAnterior == Disparo.x && meteorito.get(i).yAnterior == Disparo.y && meteorito.get(i).visible) {
+    		if(meteorito.get(i).xAnterior == Disparo.x && meteorito.get(i).yAnterior == Disparo.y && meteorito.get(i).visible && Disparo.visible) {
     			meteorito.get(i).visible = false;
     			puntuacion += 50;
+    			Disparo.visible = false;
     		}
     	}
     	
@@ -126,16 +127,12 @@ public class Mundo  {
     
     public void MatarEnemigo() {
     	
-    		if(Disparo.x == obstaculo.x && Disparo.y == obstaculo.y || Disparo.xAnterior == obstaculo.x && Disparo.yAnterior == obstaculo.y) {
+    		if(Disparo.x == obstaculo.x && Disparo.y == obstaculo.y  && Disparo.visible || Disparo.xAnterior == obstaculo.x && Disparo.yAnterior == obstaculo.y && Disparo.visible) {
     			obstaculo.x = random.nextInt(MUNDO_ANCHO);
     			obstaculo.y = random.nextInt(MUNDO_ALTO);
     			puntuacion +=20;
+    			Disparo.visible = false;
     		
-    		}
-    		
-    		if(obstaculo.x == Disparo.xAnterior+1 &&obstaculo.x == Disparo.x - 1 && obstaculo.y == Disparo.yAnterior + 1 && 
-    				obstaculo.y == Disparo.y - 1) {
-    			
     		}
     }
     

@@ -44,6 +44,8 @@ public class LoadingScreen extends Pantalla{
         Assets.flechaAbajo = g.newPixmap("arrowDown.png", PixmapFormat.ARGB4444);
         Assets.flechaDerecha = g.newPixmap("arrowRight.png", PixmapFormat.ARGB4444);
         
+        Assets.letras = g.newPixmap("Letras.png", PixmapFormat.ARGB4444);
+        
         
         Assets.disparoArriba = g.newPixmap("disparoArriba.png", PixmapFormat.ARGB4444);
         Assets.disparoAbajo = g.newPixmap("disparoAbajo.png", PixmapFormat.ARGB4444);
