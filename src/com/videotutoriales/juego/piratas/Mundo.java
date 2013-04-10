@@ -112,6 +112,7 @@ public class Mundo  {
     		if(meteorito.get(i).x == Disparo.x && meteorito.get(i).y == Disparo.y && meteorito.get(i).visible) {
     			meteorito.get(i).visible = false;
     			puntuacion += 50;
+    			
     		}
     		
     		if(meteorito.get(i).xAnterior == Disparo.x && meteorito.get(i).yAnterior == Disparo.y && meteorito.get(i).visible) {

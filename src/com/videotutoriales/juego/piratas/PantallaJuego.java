@@ -149,7 +149,7 @@ public class PantallaJuego extends Pantalla  implements SensorEventListener{
         
         
 
-        if(Integer.parseInt(puntuacion) != 0 && nivel) {
+        if(Integer.parseInt(puntuacion) != 0) {
         	subirNivel();
         	nivel = false;
         }
@@ -164,9 +164,11 @@ public class PantallaJuego extends Pantalla  implements SensorEventListener{
         if(antiguaPuntuacion != mundo.puntuacion) {
             antiguaPuntuacion = mundo.puntuacion;
             puntuacion = "" + antiguaPuntuacion;
+            nivel = true;
             if(Configuraciones.sonidoHabilitado);
                 
         }
+        
     }
     
     private void updatePaused(List<TouchEvent> touchEvents) {
