@@ -88,8 +88,9 @@ public class PantallaJuego extends Pantalla  implements SensorEventListener{
                 		&& event.x < 460 && event.y < 270 ) {
                 	if(Configuraciones.sonidoHabilitado){
                 		Assets.disparo.play(1);
-                		mundo.colocarDisparo();
+                		
                 	}
+                	mundo.colocarDisparo();
                       
                 }
                 
@@ -312,7 +313,7 @@ public class PantallaJuego extends Pantalla  implements SensorEventListener{
     private void drawReadyUI() {
         Graficos g = juego.getGraphics();
         
-        g.drawPixmap(Assets.preparado, 150, 100);
+        g.drawPixmap(Assets.preparado, 10, 100);
         g.drawLine(50, 416, 480, 416, Color.BLACK);
     }
     
@@ -352,6 +353,7 @@ public class PantallaJuego extends Pantalla  implements SensorEventListener{
     
     
     public void drawText(Graficos g, String line, int x, int y) {
+    	
     	int len = line.length();
         for (int i = 0; i < len; i++) {
             char character = line.charAt(i);
