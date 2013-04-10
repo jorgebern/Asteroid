@@ -81,15 +81,13 @@ public class PantallaJuego extends Pantalla  implements SensorEventListener{
                     return;
                 }
             }
-            
-           
-            
-            
+
             if(event.type == TouchEvent.TOUCH_DOWN) {
 
                 if(event.x > 420 && event.y > 230
                 		&& event.x < 460 && event.y < 270 ) {
                 	if(Configuraciones.sonidoHabilitado){
+                		Assets.disparo.play(1);
                 		mundo.colocarDisparo();
                 	}
                       
@@ -101,12 +99,33 @@ public class PantallaJuego extends Pantalla  implements SensorEventListener{
                 	nivel = true;
                 }
                 
+              //Arrows
+                	//Top
+                if(event.x > 30 && event.y > 220
+                		&& event.x < 62 && event.y < 250 ) {
+                	mundo.jollyroger.direccion = Nave.ARRIBA;
+                }
+                	//Left
+                if(event.x > 10 && event.y > 250
+                		&& event.x < 42 && event.y < 280 ) {
+                	mundo.jollyroger.direccion = Nave.IZQUIERDA;
+                }
+                	//Right
+                if(event.x > 55 && event.y > 250
+                		&& event.x < 87 && event.y < 280 ) {
+                	mundo.jollyroger.direccion = Nave.DERECHA;
+                }
+                	//Down
+                if(event.x > 30 && event.y > 280
+                		&& event.x < 62 && event.y < 310 ) {
+                	mundo.jollyroger.direccion = Nave.ABAJO;
+                } 
             }
             
         }
         
-        //TODO
-        if(juego.getInput().getAccelY() > 6  ) {
+        //Acelerometer
+        /*if(juego.getInput().getAccelY() > 6  ) {
        	   mundo.jollyroger.direccion = Nave.ABAJO;
           }else if(juego.getInput().getAccelY() < 5  ) {
         	   mundo.jollyroger.direccion = Nave.ARRIBA;
@@ -122,7 +141,12 @@ public class PantallaJuego extends Pantalla  implements SensorEventListener{
         	   mundo.jollyroger.direccion = Nave.ARRIBADERECHA;
            }else if(juego.getInput().getAccelY() < Y && juego.getInput().getAccelX() > X) {
         	   mundo.jollyroger.direccion = Nave.ARRIBAIZQUIERDA;
-           }
+           }*/
+        
+        //Arrows
+        
+        
+        
 
         if(Integer.parseInt(puntuacion) != 0 && nivel) {
         	subirNivel();
@@ -139,8 +163,8 @@ public class PantallaJuego extends Pantalla  implements SensorEventListener{
         if(antiguaPuntuacion != mundo.puntuacion) {
             antiguaPuntuacion = mundo.puntuacion;
             puntuacion = "" + antiguaPuntuacion;
-            if(Configuraciones.sonidoHabilitado)
-                Assets.ataque.play(1);
+            if(Configuraciones.sonidoHabilitado);
+                
         }
     }
     
@@ -282,23 +306,6 @@ public class PantallaJuego extends Pantalla  implements SensorEventListener{
 	        y = jollyroger.y * 32 + 16;
 	        g.drawPixmap(headPixmap, x - headPixmap.getWidth() / 2, y - headPixmap.getHeight() / 2);
         }
-        /*for(int i =0;i<disparos.size();i++) {
-        	if(disparos.get(i).visible) {
-        		if(disparos.get(i).direccion == disparo.ABAJO)
-        			headPixmap = Assets.disparoAbajo;
-        		if(disparos.get(i).direccion == disparo.ARRIBA)
-    	        	headPixmap = Assets.disparoArriba;
-        		if(disparos.get(i).direccion == disparo.DERECHA)
-    	        	headPixmap = Assets.disparoDerecha;
-        		if(disparos.get(i).direccion == disparo.IZQUIERDA)
-    	        	headPixmap = Assets.disparoIzquierda;
-        		
-	            x = jollyroger.x*32 + 16;
-	            y = jollyroger.y * 32 + 16;
-	            g.drawPixmap(headPixmap, disparos.get(i).x, disparos.get(i).y);
-        	}
-        }*/
-        
 
     }
     
@@ -314,6 +321,12 @@ public class PantallaJuego extends Pantalla  implements SensorEventListener{
 
         g.drawPixmap(Assets.botones, 420 ,230 , 0, 65, 42, 40);
         g.drawPixmap(Assets.botones, 380 ,270 , 42, 65, 40, 40);
+
+        //Direcciones
+        g.drawPixmap(Assets.flechaArriba, 30 ,220);
+        g.drawPixmap(Assets.flechaIzquierda, 10 ,250);
+        g.drawPixmap(Assets.flechaDerecha, 55 ,250);
+        g.drawPixmap(Assets.flechaAbajo, 30 ,280);
         
         if(estado == EstadoJuego.Ejecutandose){
         	g.drawPixmap(Assets.botones, 380 ,0 , 82, 65, 42, 42);

@@ -109,7 +109,8 @@ public class Nave {
 		boolean tocado = false;
 		
 		for(int i = 0;i < meteoritos.size();i++) {
-			if(this.x == meteoritos.get(i).x && this.y == meteoritos.get(i).y) {
+			if(this.x == meteoritos.get(i).x && this.y == meteoritos.get(i).y
+					&& meteoritos.get(i).visible) {
 				tocado = true;
 			}
 		}

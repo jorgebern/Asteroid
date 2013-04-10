@@ -89,7 +89,6 @@ public class Mundo  {
             jollyroger.Avanzar();
             Disparo.Avanzar();
             comprobarEnemigo();
-
             
             for(int i =0;i<meteorito.size();i++) {
             	 meteorito.get(i).Avanzar();
@@ -110,12 +109,12 @@ public class Mundo  {
     public void DestruirMeteorito() {
 		
     	for(int i =0;i<meteorito.size();i++) {
-    		if(meteorito.get(i).x == Disparo.x && meteorito.get(i).y == Disparo.y) {
+    		if(meteorito.get(i).x == Disparo.x && meteorito.get(i).y == Disparo.y && meteorito.get(i).visible) {
     			meteorito.get(i).visible = false;
     			puntuacion += 50;
     		}
     		
-    		if(meteorito.get(i).xAnterior == Disparo.x && meteorito.get(i).yAnterior == Disparo.y) {
+    		if(meteorito.get(i).xAnterior == Disparo.x && meteorito.get(i).yAnterior == Disparo.y && meteorito.get(i).visible) {
     			meteorito.get(i).visible = false;
     			puntuacion += 50;
     		}
@@ -130,7 +129,6 @@ public class Mundo  {
     			obstaculo.x = random.nextInt(MUNDO_ANCHO);
     			obstaculo.y = random.nextInt(MUNDO_ALTO);
     			puntuacion +=20;
-    			obstaculo.visible = false;
     		
     		}
     		

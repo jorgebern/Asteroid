@@ -17,15 +17,19 @@ public class Assets {
     public static Pixmap barcoarriba;
     public static Pixmap barcoizquierda;
     public static Pixmap barcoabajo;
-    public static Pixmap barcoderecha;
-    public static Pixmap botin1;
-    public static Pixmap botin2;
-    public static Pixmap botin3;  
+    public static Pixmap barcoderecha; 
     
     public static Pixmap disparoArriba;
     public static Pixmap disparoAbajo;
     public static Pixmap disparoDerecha;
     public static Pixmap disparoIzquierda;
+    public static Sonido disparo;
+    
+    public static Pixmap flechaArriba;
+    public static Pixmap flechaAbajo;
+    public static Pixmap flechaDerecha;
+    public static Pixmap flechaIzquierda;
+    
     
     public static Pixmap vidas;
     public static Pixmap nave1arriba;
@@ -37,7 +41,6 @@ public class Assets {
     public static Pixmap meteorito;
     public static Pixmap meteorito2;
     public static Pixmap objetos;
-    public static Pixmap muerte;
     public static Pixmap alien;
     
     
