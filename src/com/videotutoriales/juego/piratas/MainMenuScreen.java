@@ -7,6 +7,7 @@ import com.videotutoriales.juego.marco.Input.TouchEvent;
 import com.videotutoriales.juego.marco.Pantalla;
 
 public class MainMenuScreen extends Pantalla {
+	
     public MainMenuScreen(Juego juego) {
         super(juego);               
     }   
@@ -50,6 +51,7 @@ public class MainMenuScreen extends Pantalla {
                 }
             }
         }
+        //meteoro.Avanzar();
     }
     
     private boolean inBounds(TouchEvent event, int x, int y, int width, int height) {
@@ -65,12 +67,16 @@ public class MainMenuScreen extends Pantalla {
         Graficos g = juego.getGraphics();
         
         g.drawPixmap(Assets.fondo, 0, 0);
-        g.drawPixmap(Assets.logo, 200, 20);
+        g.drawPixmap(Assets.logo, 100, 20);
         g.drawPixmap(Assets.menuprincipal, 10, 150);
         if(Configuraciones.sonidoHabilitado)
             g.drawPixmap(Assets.botones, 0, 0, 0, 0, 64, 64);
         else
             g.drawPixmap(Assets.botones, 0, 0, 68, 0, 64, 64);
+        
+        //g.drawPixmap(stainPixmap, meteoro.x, meteoro.y);
+        
+        
     }
 
     @Override

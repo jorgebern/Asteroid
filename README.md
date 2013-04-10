@@ -1,4 +1,1 @@
-becomes
-hello
-hello
-hello
+My new game "Asteroid"
