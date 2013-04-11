@@ -42,8 +42,42 @@ public class Assets {
     public static Pixmap meteorito2;
     public static Pixmap objetos;
     public static Pixmap alien;
-    public static Pixmap letras;
     
+    
+    //-------------------------------
+    //            Letras
+    //-------------------------------
+    
+    public static Pixmap A;
+    public static Pixmap B;
+    public static Pixmap C;
+    public static Pixmap D;
+    public static Pixmap E;
+    public static Pixmap F;
+    public static Pixmap G;
+    public static Pixmap H;
+    public static Pixmap I;
+    public static Pixmap J;
+    public static Pixmap K;
+    public static Pixmap L;
+    public static Pixmap M;
+    public static Pixmap N;
+    public static Pixmap O;
+    public static Pixmap P;
+    public static Pixmap Q;
+    public static Pixmap R;
+    public static Pixmap S;
+    public static Pixmap T;
+    public static Pixmap U;
+    public static Pixmap V;
+    public static Pixmap W;
+    public static Pixmap X;
+    public static Pixmap Y;
+    public static Pixmap Z;
+    
+    //----------------------------
+    //          Sonidos
+    //---------------------------
     
     public static Sonido pulsar;
     public static Sonido ataque;

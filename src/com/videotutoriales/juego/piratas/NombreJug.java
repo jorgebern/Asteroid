@@ -8,14 +8,19 @@ import com.videotutoriales.juego.marco.Pantalla;
 
 public class NombreJug extends Pantalla {      
 
-	public String[] letras = {"A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "Ñ", "O", "P", "Q", "R", 
-			"S", "T", "U", "V", "W", "X", "Y", "Z"};
-	public int letra = 0;
-	public NombreJug(Juego juego) {
+	
+	public static int letra1 = 0;
+	public static int letra2 = 0;
+	public  static int letra3 = 0;
+	Mundo mundo;
+	
+	public NombreJug(Juego juego, Mundo mundo) {
         super(juego);
+        this.mundo = mundo;
     }
 
     Nave nave = new Nave();
+    
     @Override
     public void update(float deltaTime) {
         List<TouchEvent> touchEvents = juego.getInput().getTouchEvents();
@@ -25,12 +30,54 @@ public class NombreJug extends Pantalla {
         for(int i = 0; i < len; i++) {
             TouchEvent event = touchEvents.get(i);
             if(event.type == TouchEvent.TOUCH_UP) {
-            	if(event.x > 10 && event.x < 42 && event.y > 10 && event.y < 42 ) {
-            		letra++;
+            	
+            	//Letra1
+            	if(event.x > 30 && event.x < 82 && event.y > 10 && event.y < 42 ) {
+            		letra1++;
+            		if(letra1 >= 26)
+            			letra1 = 0;
             	}
             	
-            	if(event.x > 10 && event.x < 42 && event.y > 100 && event.y < 142 ) {
-            		letra--;
+            	if(event.x > 30 && event.x < 82 && event.y > 150 && event.y < 182 ) {
+            		letra1--;
+            		if(letra1 <= -1)
+            			letra1 = 25;
+            	}
+            	
+            	//Letra2
+            	if(event.x > 100 && event.x < 142 && event.y > 10 && event.y < 42 ) {
+            		letra2++;
+            		if(letra2 >= 26)
+            			letra2 = 0;
+            	}
+            	
+            	if(event.x > 100 && event.x < 142 && event.y > 150 && event.y < 182 ) {
+            		letra2--;
+            		if(letra2 <= -1)
+            			letra2 = 25;
+            	}
+            	
+            	//Letra3
+            	if(event.x > 170 && event.x < 250 && event.y > 10 && event.y < 42 ) {
+            		letra3++;
+            		if(letra3 >= 26)
+            			letra3 = 0;
+            	}
+            	
+            	if(event.x > 170 && event.x < 250 && event.y > 150 && event.y < 182 ) {
+            		letra3--;
+            		if(letra3 <= -1)
+            			letra3 = 25;
+            	}
+            	
+            	if (event.x > 380 && event.y > 250 && 
+                		event.x < 440 && event.y < 310) {
+                    if(Configuraciones.sonidoHabilitado)
+                        Assets.pulsar.play(1);
+                    Configuraciones.addScore(mundo.puntuacion, letra1, letra2, letra3);
+                    Configuraciones.save(juego.getFileIO()); 
+                    juego.setScreen(new PantallaMaximasPuntuaciones(juego));
+                    return;
             	}
             }
         }
@@ -41,12 +88,24 @@ public class NombreJug extends Pantalla {
         Graficos g = juego.getGraphics();      
         g.drawPixmap(Assets.fondo, 0, 0);
         
-        g.drawPixmap(Assets.flechaArriba, 10, 10);
-        //Letra 1
-        AsignarImagen(1,1,letra);
-        g.drawPixmap(Assets.flechaAbajo, 10, 100);
+      //Letra 1
+        g.drawPixmap(Assets.flechaArriba, 30, 10);
+        AsignarImagen(10,50,letra1);
+        g.drawPixmap(Assets.flechaAbajo, 30, 150);
         
         
+      //Letra 2
+        g.drawPixmap(Assets.flechaArriba, 100, 10);
+        AsignarImagen(80,50,letra2);
+        g.drawPixmap(Assets.flechaAbajo, 100, 150);
+        
+        
+      //Letra 3
+        g.drawPixmap(Assets.flechaArriba, 170, 10);
+        AsignarImagen(160,50,letra3);
+        g.drawPixmap(Assets.flechaAbajo, 170, 150);
+        
+        g.drawPixmap(Assets.botones, 380, 250, 0, 105, 64, 64);
         
     }
     
@@ -56,86 +115,82 @@ public class NombreJug extends Pantalla {
     	
     	switch(letra) {
     	case 0://A
-    		g.drawPixmap(Assets.letras, 10, 50, 7, 10, 37,40);
+    		g.drawPixmap(Assets.A, x, y);
 		break;
     	case 1://B
-    		g.drawPixmap(Assets.letras, 10, 50, 42, 10, 40,40);
+    		g.drawPixmap(Assets.B, x, y);
 		break;
     	case 2://C
-    		g.drawPixmap(Assets.letras, 10, 50, 82, 10, 40,40);
+    		g.drawPixmap(Assets.C, x, y);
 		break;
     	case 3://D
-    		g.drawPixmap(Assets.letras, 10, 50, 115, 10, 40,40);
+    		g.drawPixmap(Assets.D, x, y);
 		break;
     	case 4://E
-    		g.drawPixmap(Assets.letras, 10, 50, 155, 10, 40,40);
+    		g.drawPixmap(Assets.E, x, y);
 		break;
     	case 5://F
-    		g.drawPixmap(Assets.letras, 10, 50, 190, 10, 40,40);
+    		g.drawPixmap(Assets.F, x, y);
 		break;
     	case 6://G
-    		g.drawPixmap(Assets.letras, 10, 50, 230, 10, 40,40);
+    		g.drawPixmap(Assets.G, x, y);
 		break;
     	case 7://H
-    		g.drawPixmap(Assets.letras, 10, 50, 260, 10, 40,40);
+    		g.drawPixmap(Assets.H, x, y);
 		break;
     	case 8://I
-    		g.drawPixmap(Assets.letras, 10, 50, 300, 10, 37,40);
+    		g.drawPixmap(Assets.I, x, y);
 		break;
     	case 9://J
-    		g.drawPixmap(Assets.letras, 10, 50, 330, 10, 40,40);
+    		g.drawPixmap(Assets.J, x, y);
 		break;
     	case 10://K
-    		g.drawPixmap(Assets.letras, 10, 50, 370, 10, 40,40);
+    		g.drawPixmap(Assets.K, x, y);
 		break;
     	case 11://L
-    		g.drawPixmap(Assets.letras, 10, 50, 410, 10, 40,40);
+    		g.drawPixmap(Assets.L, x, y);
 		break;
     	case 12://M
-    		g.drawPixmap(Assets.letras, 10, 50, 450, 10, 40,40);
+    		g.drawPixmap(Assets.M, x, y);
 		break;
     	case 13://N
-    		g.drawPixmap(Assets.letras, 10, 50, 480, 10, 40,40);
+    		g.drawPixmap(Assets.N, x, y);
 		break;
-    	case 14://Ñ
-    		g.drawPixmap(Assets.letras, 10, 50, 520, 10, 40,40);
+    	case 14://O
+    		g.drawPixmap(Assets.O, x, y);
 		break;
-    	case 15://O
-    		g.drawPixmap(Assets.letras, 10, 50, 560, 10, 40,40);
+    	case 15://P
+    		g.drawPixmap(Assets.P, x, y);
 		break;
-    	case 16://P
-    		g.drawPixmap(Assets.letras, 10, 50, 600, 10, 37,40);
+    	case 16://Q
+    		g.drawPixmap(Assets.Q, x, y);
 		break;
-    	case 17://Q
-    		g.drawPixmap(Assets.letras, 10, 50, 630, 10, 40,40);
+    	case 17://R
+    		g.drawPixmap(Assets.R, x, y);
 		break;
-    	case 18://R
-    		g.drawPixmap(Assets.letras, 10, 50, 670, 10, 40,40);
+    	case 18://S
+    		g.drawPixmap(Assets.S, x, y);
 		break;
-		//----------------------------------------------------------
-    	case 19://S
-    		g.drawPixmap(Assets.letras, 10, 50, 115, 10, 40,40);
+    	case 19://T
+    		g.drawPixmap(Assets.T, x, y);
 		break;
-    	case 20://T
-    		g.drawPixmap(Assets.letras, 10, 50, 155, 10, 40,40);
+    	case 20://U
+    		g.drawPixmap(Assets.U, x, y);
 		break;
-    	case 21://U
-    		g.drawPixmap(Assets.letras, 10, 50, 190, 10, 40,40);
+    	case 21://V
+    		g.drawPixmap(Assets.V, x, y);
 		break;
-    	case 22://V
-    		g.drawPixmap(Assets.letras, 10, 50, 230, 10, 40,40);
+    	case 22://W
+    		g.drawPixmap(Assets.W, x, y);
 		break;
-    	case 23://W
-    		g.drawPixmap(Assets.letras, 10, 50, 270, 10, 40,40);
+    	case 23://X
+    		g.drawPixmap(Assets.X, x, y);
 		break;
-    	case 24://X
-    		g.drawPixmap(Assets.letras, 10, 50, 115, 10, 40,40);
+    	case 24://Y
+    		g.drawPixmap(Assets.Y, x, y);
 		break;
-    	case 25://Y
-    		g.drawPixmap(Assets.letras, 10, 50, 155, 10, 40,40);
-		break;
-    	case 26://Z
-    		g.drawPixmap(Assets.letras, 10, 50, 190, 10, 40,40);
+    	case 25://Z
+    		g.drawPixmap(Assets.Z, x, y);
 		break;
     	}
     	

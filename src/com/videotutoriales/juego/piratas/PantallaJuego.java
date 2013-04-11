@@ -203,7 +203,7 @@ public class PantallaJuego extends Pantalla  implements SensorEventListener{
                    event.y >= 200 && event.y <= 264) {
                     if(Configuraciones.sonidoHabilitado)
                         Assets.pulsar.play(1);                        
-                    juego.setScreen(new NombreJug(juego));
+                    juego.setScreen(new NombreJug(juego, mundo));
                     return;
                 }
             }
@@ -405,8 +405,8 @@ public class PantallaJuego extends Pantalla  implements SensorEventListener{
             estado = EstadoJuego.Pausado;
         
         if(mundo.finalJuego) {        	
-            Configuraciones.addScore(mundo.puntuacion);
-            Configuraciones.save(juego.getFileIO());           
+           // Configuraciones.addScore(mundo.puntuacion);
+            //Configuraciones.save(juego.getFileIO());      
         }
     }
 
