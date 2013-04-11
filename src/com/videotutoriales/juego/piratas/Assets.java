@@ -42,6 +42,8 @@ public class Assets {
     public static Pixmap meteorito2;
     public static Pixmap objetos;
     public static Pixmap alien;
+    public static Pixmap pad;
+    public static Pixmap button;
     
     
     //-------------------------------

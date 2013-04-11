@@ -90,19 +90,19 @@ public class NombreJug extends Pantalla {
         
       //Letra 1
         g.drawPixmap(Assets.flechaArriba, 30, 10);
-        AsignarImagen(10,50,letra1);
+        AsignarImagen(40,75,letra1);
         g.drawPixmap(Assets.flechaAbajo, 30, 150);
         
         
       //Letra 2
         g.drawPixmap(Assets.flechaArriba, 100, 10);
-        AsignarImagen(80,50,letra2);
+        AsignarImagen(120,75,letra2);
         g.drawPixmap(Assets.flechaAbajo, 100, 150);
         
         
       //Letra 3
         g.drawPixmap(Assets.flechaArriba, 170, 10);
-        AsignarImagen(160,50,letra3);
+        AsignarImagen(180,75,letra3);
         g.drawPixmap(Assets.flechaAbajo, 170, 150);
         
         g.drawPixmap(Assets.botones, 380, 250, 0, 105, 64, 64);

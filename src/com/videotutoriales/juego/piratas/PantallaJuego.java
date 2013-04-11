@@ -102,7 +102,7 @@ public class PantallaJuego extends Pantalla  implements SensorEventListener{
                 
               //Arrows
                 	//Top
-                if(event.x > 30 && event.y > 220
+                if(event.x > 0 && event.y > 220
                 		&& event.x < 62 && event.y < 250 ) {
                 	mundo.jollyroger.direccion = Nave.ARRIBA;
                 }
@@ -325,14 +325,11 @@ public class PantallaJuego extends Pantalla  implements SensorEventListener{
     private void drawRunningUI() {
         Graficos g = juego.getGraphics();
 
-        g.drawPixmap(Assets.botones, 420 ,230 , 0, 65, 42, 40);
-        g.drawPixmap(Assets.botones, 380 ,270 , 42, 65, 40, 40);
+        g.drawPixmap(Assets.button, 420 ,230);
+       // g.drawPixmap(Assets.botones, 380 ,270 , 42, 65, 40, 40);
 
-        //Direcciones
-        g.drawPixmap(Assets.flechaArriba, 30 ,220);
-        g.drawPixmap(Assets.flechaIzquierda, 10 ,250);
-        g.drawPixmap(Assets.flechaDerecha, 55 ,250);
-        g.drawPixmap(Assets.flechaAbajo, 30 ,280);
+        
+        g.drawPixmap(Assets.pad, 0 ,210);
         
         if(estado == EstadoJuego.Ejecutandose){
         	g.drawPixmap(Assets.botones, 380 ,0 , 82, 65, 42, 42);
@@ -404,10 +401,6 @@ public class PantallaJuego extends Pantalla  implements SensorEventListener{
         if(estado == EstadoJuego.Ejecutandose)
             estado = EstadoJuego.Pausado;
         
-        if(mundo.finalJuego) {        	
-           // Configuraciones.addScore(mundo.puntuacion);
-            //Configuraciones.save(juego.getFileIO());      
-        }
     }
 
     @Override

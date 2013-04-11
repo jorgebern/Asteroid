@@ -49,6 +49,8 @@ public class LoadingScreen extends Pantalla{
         Assets.disparoDerecha = g.newPixmap("disparoDerecha.png", PixmapFormat.ARGB4444);
         Assets.disparoIzquierda = g.newPixmap("disparoIzquierda.png", PixmapFormat.ARGB4444);
         Assets.vidas = g.newPixmap("vidas.png", PixmapFormat.ARGB4444);
+        Assets.pad = g.newPixmap("pad.png", PixmapFormat.ARGB4444);
+        Assets.button = g.newPixmap("Button.png", PixmapFormat.ARGB4444);
         
         
         //------------------------------------------

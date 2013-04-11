@@ -1,13 +1,26 @@
 package com.videotutoriales.juego.piratas;
 
 import java.util.List;
+
+/*import twitter4j.Twitter;
+import twitter4j.TwitterException;
+import twitter4j.TwitterFactory;
+import twitter4j.auth.AccessToken;*/
+
 import com.videotutoriales.juego.marco.Juego;
 import com.videotutoriales.juego.marco.Graficos;
 import com.videotutoriales.juego.marco.Input.TouchEvent;
 import com.videotutoriales.juego.marco.Pantalla;
 
 public class MainMenuScreen extends Pantalla {
-	
+	String consumerKey = "sawPp6RrqhXrQUzwj4Hrg"; // key obtained after registering app.
+	String consumerSecret = "7ke49XmD7Gx7CqR4Sj95Jd1O2OuKf2siuMeLc2ne4c"; // secret key obtained from the registered app.
+	String twitterToken = "178766862-8lKAQJnMzjEYTgc7cQ7YILhcTaMJDnQ9Uaz3rIlk";
+	// access_token received by authentication user's twitter account
+	String twitterSecret= "XEAQcGVvIglaPJCzZGryAJoeydJGPSm02UFdSiBxwE"; 
+	 // access_secret obtained by authentication user's twitter account 
+	String twitterName = "DeveloperLoco";// twitterName of the twitter account the user want to follow/unfollow
+
     public MainMenuScreen(Juego juego) {
         super(juego);               
     }   
@@ -38,6 +51,19 @@ public class MainMenuScreen extends Pantalla {
                     return;
                 }
                 if(inBounds(event, 10, 200, 190, 45) ) {
+                	
+                	/*TwitterFactory factory = new TwitterFactory();
+                    Twitter twitter = factory.getInstance();
+                    twitter.setOAuthConsumer(consumerKey, consumerSecret);
+                    AccessToken accessToken = new AccessToken(twitterToken, twitterSecret);
+                    twitter.setOAuthAccessToken(accessToken);
+                    try {
+						twitter4j.User  user = twitter.createFriendship(twitterName);
+					} catch (TwitterException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}*/
+                	
                     juego.setScreen(new PantallaMaximasPuntuaciones(juego));
                     if(Configuraciones.sonidoHabilitado)
                         Assets.pulsar.play(1);

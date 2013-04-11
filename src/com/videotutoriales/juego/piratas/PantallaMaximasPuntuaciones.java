@@ -48,14 +48,14 @@ public class PantallaMaximasPuntuaciones extends Pantalla {
         g.drawPixmap(Assets.menuprincipal, 150, 20, 0, 42, 196, 42);
 
         int y = 100;
-        int x =150;
+        int x =50;
         
         for (int i = 0; i <3; i++) {
             dibujarTexto(g, lineas[i], x, y);
             letras = Configuraciones.nombres[i].split("Ü");
-            AsignarImagen(x, y, Integer.parseInt(letras[0]));
-            AsignarImagen(x + 100, y, Integer.parseInt(letras[1]) );
-            AsignarImagen(x + 200, y, Integer.parseInt(letras[2]) );
+            AsignarImagen(x+120, y, Integer.parseInt(letras[0]));
+            AsignarImagen(x + 140, y, Integer.parseInt(letras[1]) );
+            AsignarImagen(x + 160, y, Integer.parseInt(letras[2]) );
             y += 50;
             if(y >= 250) {
             	y= 100;
