@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-      package="com.videotutoriales.juego.piratas"
+      package="com.jorge.Asteroid"
       android:versionCode="2" android:versionName="2.0">
-    <application android:icon="@drawable/icon2" android:debuggable="true" android:label="JollyRoger">
+    <application android:icon="@drawable/icon2" android:debuggable="false" android:label="JollyRoger">
         <activity android:label="Asteroid"
                   android:configChanges="keyboard|keyboardHidden|orientation"
-                  android:screenOrientation="landscape" android:name="JuegoPiratas">
+                  android:screenOrientation="landscape" android:name="com.jorge.Asteroid.piratas.JuegoPiratas">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
