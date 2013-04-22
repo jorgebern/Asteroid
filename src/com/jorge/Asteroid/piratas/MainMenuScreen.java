@@ -2,14 +2,6 @@ package com.jorge.Asteroid.piratas;
 
 import java.util.List;
 
-import twitter4j.conf.Configuration;
-import twitter4j.conf.ConfigurationBuilder;
-
-/*import twitter4j.Twitter;
-import twitter4j.TwitterException;
-import twitter4j.TwitterFactory;
-import twitter4j.auth.AccessToken;*/
-
 import com.jorge.Asteroid.marco.Graficos;
 import com.jorge.Asteroid.marco.Juego;
 import com.jorge.Asteroid.marco.Pantalla;

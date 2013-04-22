@@ -6,7 +6,7 @@ import java.util.Random;
 public class Mundo  {
     static final int MUNDO_ANCHO = 15;
     static final int MUNDO_ALTO = 8;
-    static final float TICK_INICIAL = 0.3f;
+    static final float TICK_INICIAL = 0.4f;
     static final float TICK_DECREMENTO = 0.05f;
 
     public Nave jollyroger;
